@@ -4,6 +4,7 @@ unsigned char* fib(int *count) {
     static unsigned char fibonacci[20];
     unsigned char a = 0;
     unsigned char b = 1;
+    unsigned char maxByte = 255;
     *count = 0;
 
     fibonacci[(*count)++] = a;
@@ -11,8 +12,8 @@ unsigned char* fib(int *count) {
 
     while (1) {
         unsigned char next = a + b;
-        if (next < b) break; // Desbordamiento
-        if (next > 255) break;
+        if (next < b) break; 
+        if (next > maxByte) break;
         fibonacci[(*count)++] = next;
         a = b;
         b = next;
@@ -30,8 +31,8 @@ void print_byte(unsigned char *fibonacci, int count) {
 
 int main() {
     int count;
-    char mensaje[] = "Secuencia de Fibonacci (byte):";
     unsigned char *fibonacci = fib(&count);
+    char mensaje[] = "Secuencia de Fibonacci (byte):";
 
     printf("%s\n", mensaje);
     print_byte(fibonacci, count);
