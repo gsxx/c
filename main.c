@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include <gb/gb.h>
 unsigned char* fib(int *count) {
     static unsigned char fibonacci[20];
     unsigned char a = 0;
